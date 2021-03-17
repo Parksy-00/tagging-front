@@ -1,11 +1,16 @@
 import './App.css';
+import { RecoilRoot } from 'recoil'
 import UploadPage from './components/uploadSpace/uploadSpace'
+import VerticalStep from './components/VerticalStep/VerticalStep'
+import TagSearch from './components/TagSearch/TagSearch'
 
 function App() {
   return (
-    <div className="App" style={{display:"flex", alignItems:"center",justifyContent:"center", height:"100vh", width:"100%"}}>
-      <UploadPage/>
-    </div>
+    <RecoilRoot>
+        <VerticalStep/>
+        <UploadPage/>
+        <TagSearch/>
+    </RecoilRoot>
   );
 }
 
