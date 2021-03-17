@@ -1,19 +1,25 @@
 import './App.css';
 import { RecoilRoot } from 'recoil'
-import UploadPage from './components/uploadSpace/uploadSpace'
-import VerticalStep from './components/VerticalStep/VerticalStep'
 import TagSearch from './components/TagSearch/TagSearch'
 import { Divider } from 'antd'
 import TagsDisplay from './components/TagsDisplay/TagsDisplay'
+import {BrowserRouter, Switch, Link, Route} from 'react-router-dom'
+
+import LoginPage from './pages/LoginPage'
 
 function App() {
   return (
     <RecoilRoot>
+      <BrowserRouter>
         {/* <VerticalStep/>
-        <UploadPage/> */}
+        <UploadPage/>
         <TagsDisplay/>
         <Divider/>
-        <TagSearch/>
+        <TagSearch/> */}
+        <Switch>
+          <Route path='/'><LoginPage/></Route>
+        </Switch>
+      </BrowserRouter>
     </RecoilRoot>
   );
 }

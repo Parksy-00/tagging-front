@@ -9,7 +9,7 @@ const { Sider, Content } = Layout
 
 export default function Login() {
     return (
-        <div style={{marginTop:"150px"}}>
+        <div style={{marginTop:"30vh"}}>
             <Title style={{margin: "80px 90px 50px", textAlign:'left'}}>stolage</Title>
 
             <Form wrapperCol={{span: 16, offset: 4}} className="login-form">
