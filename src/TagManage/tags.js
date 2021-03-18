@@ -10,16 +10,15 @@ myMap.set('1단원', ['2014년', '2015년', '2016년', '6월', '9월', '중요']
 myMap.set('4단원', ['2014년', '2015년', '2016년', '6월', '9월'])
 myMap.set('중요', ['1단원'])
 
-function intersection(a) {
-    if (a.length > 2)
-        return intersection([intersection(a.slice(0, a.length / 2)), intersection(a.slice(a.length / 2))]);
+const intersection = arrays => {
+    const len = arrays.length
+    if (len == 1) return arrays[0];
 
-    if (a.length == 1)
-        return a[0];
-
-    return a[0].filter(function(item) {
-        return a[1].indexOf(item) !== -1;
-    });
+    if (len > 2)
+        return intersection([intersection(arrays.slice(0, len / 2)), 
+                             intersection(arrays.slice(len / 2))]);
+    //len == 2
+    else return arrays[0].filter((item) => (arrays[1].indexOf(item) !== -1));
 }
 
 const relatedTags = atom({
