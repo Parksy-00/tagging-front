@@ -9,7 +9,8 @@ const TagSearch = () => {
     canPick = canPick.map((item) => (<Select.Option key={item} value={item}>
                                         {item}
                                      </Select.Option>))
- 
+                                     
+    let selected = useRecoilValue(selectedTags)
     let selectedChange = useSetRecoilState(selectedTags)
 
     function handleChange(value) {
@@ -20,7 +21,9 @@ const TagSearch = () => {
         <Select mode="tags" 
                 style={{ width: '100%' }} 
                 placeholder="태그를 입력하세요." 
-                onChange={handleChange}>
+                onChange={handleChange}
+                value={selected}
+                >
                     
             {canPick}
         </Select>

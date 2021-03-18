@@ -4,7 +4,6 @@ import { Divider } from 'antd'
 import TagsDisplay from './components/TagsDisplay/TagsDisplay'
 import {BrowserRouter, Switch, Link, Route, Redirect} from 'react-router-dom'
 
-import SearchPage from './pages/SearchPage'
 import LoginPage from './pages/LoginPage'
 import TutorialPage from './pages/TutorialPage';
 
@@ -16,7 +15,6 @@ function App() {
         <Switch>
           <Route path='/demo/autolable'><TagsDisplay/></Route>
           <Route path='/demo/userlable'><TagsDisplay/></Route>
-          {/* <Route path='/demo/search'><SearchPage/></Route> */}
           <Route path='/demo'>
             <TutorialPage/>
           </Route>
