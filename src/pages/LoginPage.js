@@ -18,7 +18,6 @@ export default function LoginPage() {
           <Intro/>
         </Content>
       </Layout>
-
     </div>
   );
 }

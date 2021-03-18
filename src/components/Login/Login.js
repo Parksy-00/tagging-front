@@ -1,11 +1,10 @@
 import "antd/dist/antd.css"
-import { Layout, Button, Checkbox, Form, Input, Typography, Divider} from 'antd'
+import { Button, Checkbox, Form, Input, Typography, Divider} from 'antd'
 import "./login.css"
 import React from 'react'
 import { UserOutlined, LockOutlined, GoogleOutlined } from '@ant-design/icons';
 
 const { Title } = Typography
-const { Sider, Content } = Layout
 
 export default function Login() {
     return (

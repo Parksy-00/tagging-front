@@ -6,6 +6,7 @@ import VerticalStep from './components/VerticalStep/VerticalStep'
 import TagsDisplay from './components/TagsDisplay/TagsDisplay'
 import {BrowserRouter, Switch, Link, Route} from 'react-router-dom'
 
+import TutorialPage from './pages/TutorialPage'
 import LoginPage from './pages/LoginPage'
 import TagDisplay from './components/TagsDisplay/TagsDisplay';
 
@@ -18,7 +19,7 @@ function App() {
           <Route path='/demo/userlable'><TagsDisplay/></Route>
           <Route path='/demo/browse'><TagsDisplay/></Route>
           <Route path='/demo/start'><TagsDisplay/></Route>
-          <Route path='/demo'><TagDisplay/></Route>
+          <Route path='/demo'><TutorialPage/></Route>
           <Route path='/'><LoginPage/></Route>
         </Switch>
       </BrowserRouter>
