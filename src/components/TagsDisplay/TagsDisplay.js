@@ -8,17 +8,18 @@ const TagDisplay = () => {
     const list = useRecoilValue(recommandList)
     const tagMapUpdater = useSetRecoilState(relatedTags)
 
-    function deleteTag(tag) {
-        tagMapUpdater((tagMap) => {
-            tagMap.delete(tag)
-            return tagMap
-        })
-    }   
+    // function deleteTag(tag) {
+    //     tagMapUpdater((tagMap) => {
+    //         tagMap.delete(tag)
+    //         return tagMap
+    //     })
+    // }   
 
     return (
         <Space size={[8, 16]} wrap>
             {list.map((name) => (
-                <Tag closable onClose={() => deleteTag(name)}>{name}</Tag>
+                //<Tag closable onClose={() => deleteTag(name)}>{name}</Tag>
+                <Tag>{name}</Tag>
             ))} 
         </Space>
     )

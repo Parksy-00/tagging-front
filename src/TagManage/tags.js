@@ -46,9 +46,10 @@ const recommandList = selector({
         const selected = get(selectedTags)
         const related = get(relatedTags)
         const allTag = get(tagList)
-        
+
         if(selected.length === 0) return allTag 
-        else return intersection(selected.map( (tag) => related.get(tag) ));
+        else return intersection(selected.filter( (tag) => related.has(tag) )
+                                         .map( (tag) => related.get(tag) ))
     }
 })
 
