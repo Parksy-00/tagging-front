@@ -27,11 +27,15 @@ export default function TutorialPage() {
               <br></br><br></br>
               <TagDisplay/>
               <br></br><br></br>
-              <TagSearch/>
+              <TagSearch option='multiple'/>
               </> }
             {step.currentIndex === 2 && 
               //직접 묘사하기
               <>
+              <br></br><br></br>
+              <TagDisplay/>
+              <br></br><br></br>
+              <TagSearch option='tags'/>
               <br></br><br></br>
               <UploadPage/>
               </>
@@ -39,6 +43,10 @@ export default function TutorialPage() {
             {step.currentIndex === 3 &&
               //직접 묘사하지 않기
               <>
+              <br></br><br></br>
+              <TagDisplay/>
+              <br></br><br></br>
+              <TagSearch option='tags'/>
               <br></br><br></br>
               <UploadPage/>
               </>
