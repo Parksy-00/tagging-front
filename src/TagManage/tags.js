@@ -10,6 +10,7 @@ myMap.set('1단원', ['2014년', '2015년', '2016년', '6월', '9월', '중요']
 myMap.set('4단원', ['2014년', '2015년', '2016년', '6월', '9월'])
 myMap.set('중요', ['1단원'])
 
+
 const intersection = arrays => {
     const len = arrays.length
     if (len == 1) return arrays[0];
@@ -42,13 +43,13 @@ const selectedTags = atom({
 const recommandList = selector({
     key: 'recommandList',
     get: ({get}) => {
-        const selected = get(selectedTags)
+        let selected = get(selectedTags)
         const related = get(relatedTags)
         const allTag = get(tagList)
 
+        selected = selected.filter( (tag) => related.has(tag) )
         if(selected.length === 0) return allTag 
-        else return intersection(selected.filter( (tag) => related.has(tag) )
-                                         .map( (tag) => related.get(tag) ))
+        else return intersection(selected.map( (tag) => related.get(tag) ))
     }
 })
 
