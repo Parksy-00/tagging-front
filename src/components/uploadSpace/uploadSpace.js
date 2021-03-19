@@ -5,11 +5,12 @@ import Axios from 'axios'
 export default function uploadPage() {
 
     const onDrop = (files) => {
-        let formdata = new FormData()
         const config = {
             header: {'content-type': 'mulipart/form-data'}
         }
+        let formdata = new FormData()
         formdata.append("file", files[0])
+
         Axios.post('http://localhost:5000/file', formdata, config)
             .then(res => {
                 console.log(res)
@@ -23,13 +24,13 @@ export default function uploadPage() {
                 onDrop={onDrop}
             >
                 {
-                            ({getRootProps, getInputProps}) => (
-                                <div style={{width: '100vh', height: '60vh', border:'2px solid lightgray', display: 'flex', alignItems: 'center', justifyContent: 'center'}} {...getRootProps()}>
-                                    <input {...getInputProps()} />
-                                    <h1 style={{fontSize:"4rem", color:"gray"}}>+</h1>
+                    ({getRootProps, getInputProps}) => (
+                        <div style={{width: '100vh', height: '60vh', border:'2px solid lightgray', display: 'flex', alignItems: 'center', justifyContent: 'center'}} {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            <h1 style={{fontSize:"4rem", color:"gray"}}>+</h1>
 
-                                </div>
-                            )
+                        </div>
+                    )
                 }
             </Dropzone>
         </div>
