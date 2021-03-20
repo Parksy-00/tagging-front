@@ -7,7 +7,7 @@ import TagDisplay from '../components/TagsDisplay/TagsDisplay'
 import TagSearch from '../components/TagSearch/TagSearch'
 import VerticalStep from '../components/VerticalStep/VerticalStep'
 import stepStatus from '../StepManage/step'
-import UploadPage from '../components/uploadSpace/uploadSpace'
+import UploadPage from '../components/UploadSpace/UploadSpace'
 const { Sider, Content } = Layout
 
 export default function TutorialPage() {

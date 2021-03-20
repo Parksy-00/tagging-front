@@ -1,8 +1,14 @@
 import Dropzone from 'react-dropzone'
 import React from 'react'
 import Axios from 'axios'
+import {selectedTags, relatedTags, tagList, recommandList} from "../../TagManage/tags"
+import { useRecoilValue, useRecoilState } from 'recoil'
 
-export default function uploadPage() {
+export default function UploadPage() {
+    const selected = useRecoilValue(selectedTags)
+    const [related, relatedSet] = useRecoilState(relatedTags)
+    const tags = useRecoilValue(tagList)
+    const recommand = useRecoilValue(recommandList)
 
     const onDrop = (files) => {
         const config = {
@@ -11,11 +17,28 @@ export default function uploadPage() {
         let formdata = new FormData()
         formdata.append("file", files[0])
 
-        Axios.post('http://localhost:5000/file', formdata, config)
-            .then(res => {
-                console.log(res)
-            })
+        // Axios.post('http://localhost:5000/file', formdata, config)
+        //     .then(res => {
+        //         console.log(res)
+        //     })
+
+        selected.forEach(tag => {
+            if(!related.has(tag)) {
+                relatedSet((old) => {   
+                    let updated = new Map(old)
+                    return updated.set(tag, selected)
+                })
+            }
+        });
     }
+
+    // 테스트 용으로 넣음
+    // const onClick = (e) => {
+    //     console.log("all tags", tags)
+    //     console.log("related", related)
+    //     console.log('selected', selected)
+    //     console.log("recommanded", recommand)
+    // }
 
     return (
         <div style={{display:'flex', justifyContent:'center', alignItems:"center"}}>
@@ -33,6 +56,7 @@ export default function uploadPage() {
                     )
                 }
             </Dropzone>
+            {/* <button onClick={(e) => onClick()}>버튼</button> */}
         </div>
     )
 }

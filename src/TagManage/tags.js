@@ -13,7 +13,7 @@ myMap.set('중요', ['1단원'])
 
 const intersection = arrays => {
     const len = arrays.length
-    if (len == 1) return arrays[0];
+    if (len === 1) return arrays[0];
 
     if (len > 2)
         return intersection([intersection(arrays.slice(0, len / 2)), 
