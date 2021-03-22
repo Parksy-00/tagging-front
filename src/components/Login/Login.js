@@ -11,7 +11,7 @@ export default function Login() {
         <div style={{marginTop:"20vh"}}>
             <Title style={{margin: "80px 90px 50px", textAlign:'left'}}>stolage</Title>
 
-            <Form wrapperCol={{span: 16, offset: 4}} className="login-form" initialValues={{remember: true}}>
+            <Form wrappercol={{span: 16, offset: 4}} className="login-form" initialValues={{remember: true}}>
                 <Form.Item
                 name="email"
                 rules={[{required:true, message: "Please write your email!"}]}
@@ -26,14 +26,14 @@ export default function Login() {
                     <Input.Password placeholder="비밀번호" prefix={<LockOutlined/>}/>
                 </Form.Item>
 
-                <Form.Item name="remember" valuePropName="checked">
+                <Form.Item valuePropName="checked">
                     <Checkbox>계정 기억하기</Checkbox>
 
                     <a href="/" style={{float:'right'}}>비밀번호 찾기</a>
                 </Form.Item>
 
                 <Form.Item>
-                    <Button type="primary" htmlType="submit" wrapperCol={{offset:6}} className="login-btn">
+                    <Button type="primary" htmlType="submit" wrappercol={{offset:6}} className="login-btn">
                         로그인
                     </Button>
                 </Form.Item>
