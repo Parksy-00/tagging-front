@@ -1,28 +1,11 @@
 import "antd/dist/antd.css"
 import { Typography, Button } from 'antd'
 import { Link } from 'react-router-dom';
-import Axios from 'axios'
-import { useRecoilState } from 'recoil'
-import { relatedTags } from '../../TagManage/tags'
 import "./intro.css"
 
 const { Title } = Typography
 export default function MainSpace() {
 
-    const [related, setRelated] = useRecoilState(relatedTags)
-
-    const onClick = () => {
-        Axios.get('http://localhost:5000/')
-        .then(res => {
-            const tagList = res.data
-            console.log(tagList)
-            const newMap = new Map(related)
-            tagList.forEach(tag => {
-                newMap.set(tag.name, tag.related)
-            })
-            setRelated(newMap)
-        })        
-    }
 
     return (
         <div style={{height:"100%", overflow:"hidden"}}>
@@ -34,7 +17,7 @@ export default function MainSpace() {
                     파일을 label로 묘사하세요.
                 </p>
                 <Button type="primary" htmlType="button">
-                    <Link to='/demo' onClick={onClick}>체험하기</Link>
+                    <Link to='/demo'>체험하기</Link>
                 </Button>
             </div>
         </div>

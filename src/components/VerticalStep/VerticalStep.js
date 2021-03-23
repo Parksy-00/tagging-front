@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Steps } from 'antd';
 import { useRecoilState } from 'recoil';
-import stepStatus from '../../StepManage/step'
+import stepStatus from '../../atoms/step'
 
 const { Step } = Steps;
 

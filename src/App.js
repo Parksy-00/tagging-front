@@ -1,8 +1,8 @@
 import './App.css';
 import { RecoilRoot } from 'recoil'
-import { Divider } from 'antd'
+import {} from 'antd'
 import TagsDisplay from './components/TagsDisplay/TagsDisplay'
-import {BrowserRouter, Switch, Link, Route, Redirect} from 'react-router-dom'
+import {BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import LoginPage from './pages/LoginPage'
 import TutorialPage from './pages/TutorialPage';

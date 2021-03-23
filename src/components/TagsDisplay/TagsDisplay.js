@@ -1,5 +1,5 @@
 import React from 'react'
-import {recommandList, relatedTags, selectedTags} from '../../TagManage/tags'
+import {recommandList, selectedTags} from '../../atoms/tags'
 import { Space, Tag } from 'antd'
 import { useRecoilValue, useSetRecoilState, useRecoilState } from 'recoil';
 import {fileAtom} from '../../atoms/file'
@@ -8,7 +8,7 @@ import 'antd/dist/antd.css'
 
 const TagDisplay = () => {
     const list = useRecoilValue(recommandList)
-    const tagMapUpdater = useSetRecoilState(relatedTags)
+    // const tagMapUpdater = useSetRecoilState(relatedTags)
     const [selected, setSelected] = useRecoilState(selectedTags)
     const setFiles = useSetRecoilState(fileAtom)
     // function deleteTag(tag) {

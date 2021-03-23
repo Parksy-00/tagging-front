@@ -1,7 +1,6 @@
 import React from 'react'
-import {recommandList, relatedTags, selectedTags} from '../../TagManage/tags'
 import { Space, Avatar } from 'antd'
-import { useRecoilValue, useSetRecoilState, useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import {fileAtom} from '../../atoms/file'
 import 'antd/dist/antd.css'
 

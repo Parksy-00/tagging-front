@@ -1,5 +1,5 @@
 import React from 'react'
-import {tagList, selectedTags, recommandList} from '../../TagManage/tags'
+import {selectedTags, recommandList} from '../../atoms/tags'
 import { Select } from 'antd'
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { fileAtom } from '../../atoms/file'

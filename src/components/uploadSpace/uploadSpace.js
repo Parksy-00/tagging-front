@@ -1,14 +1,12 @@
 import Dropzone from 'react-dropzone'
 import React from 'react'
-import Axios from 'axios'
-import {selectedTags, relatedTags, tagList, recommandList} from "../../TagManage/tags"
+// import Axios from 'axios'
+import {selectedTags, relatedTags} from "../../atoms/tags"
 import { useRecoilValue, useRecoilState } from 'recoil'
 
 export default function UploadPage() {
     const selected = useRecoilValue(selectedTags)
     const [related, relatedSet] = useRecoilState(relatedTags)
-    const tags = useRecoilValue(tagList)
-    const recommand = useRecoilValue(recommandList)
 
     const onDrop = (files) => {
         // const config = {
@@ -34,14 +32,6 @@ export default function UploadPage() {
         });
     }
 
-    // 테스트 용으로 넣음
-    // const onClick = (e) => {
-    //     console.log("all tags", tags)
-    //     console.log("related", related)
-    //     console.log('selected', selected)
-    //     console.log("recommanded", recommand)
-    // }
-
     return (
         <div style={{display:'flex', justifyContent:'center', alignItems:"center"}}>
             <Dropzone
@@ -58,7 +48,6 @@ export default function UploadPage() {
                     )
                 }
             </Dropzone>
-            {/* <button onClick={(e) => onClick()}>버튼</button> */}
         </div>
     )
 }
