@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Space, Tag } from 'antd'
 import 'antd/dist/antd.css'
 import { useRecoilValue, useRecoilState } from 'recoil'

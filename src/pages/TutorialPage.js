@@ -1,5 +1,5 @@
 import "antd/dist/antd.css"
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { Layout } from 'antd'
 import { useRecoilValue, useRecoilState, useSetRecoilState} from "recoil"
 import Axios from 'axios'
@@ -31,6 +31,7 @@ export default function TutorialPage() {
           <VerticalStep/>
         </Sider>
         <Content>
+          <Suspense fallback={<div></div>}>
             {step.currentIndex === 1 && 
               //탐색하기
               <>
@@ -62,6 +63,8 @@ export default function TutorialPage() {
               {/* <UploadPage/> */}
               </>
             }
+          </Suspense>
+            
         </Content>
       </Layout>
     </div>
