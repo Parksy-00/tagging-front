@@ -1,34 +1,23 @@
 import React from 'react'
-import {selectedTags, recommandList} from '../../atoms/tags'
 import { Select } from 'antd'
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { fileAtom } from '../../atoms/file'
-import Axios from 'axios'
+import { useRecoilValue, useSetRecoilState, useRecoilState } from 'recoil';
 import 'antd/dist/antd.css'
+import selectedTags from '../../states/selectedTags'
+import recommandTags from '../../states/recommandTags'
 
 const TagSearch = (props) => {
+    let canPick = useRecoilValue(recommandTags)
 
-    const setFiles = useSetRecoilState(fileAtom)
-
-    let canPick = useRecoilValue(recommandList)
+    console.log('tagsearch')
+    console.log(canPick)
     canPick = canPick.map((item) => (<Select.Option key={item} value={item}>
                                         {item}
                                      </Select.Option>))
-                                     
-    let selected = useRecoilValue(selectedTags)
-    let selectedChange = useSetRecoilState(selectedTags)
 
-    function handleChange(value) {
-        selectedChange(value)
-        
-        const body = { selected: value}
+    const [selected, setSelected] = useRecoilState(selectedTags)
 
-        Axios.post('http://localhost:5000/demo/search', body)
-            .then(res => {
-                const files = res.data
-                console.log(files)
-                setFiles(files)
-            })
+    function handleChange(newSelected) {
+        setSelected(newSelected)
     }
 
     return (

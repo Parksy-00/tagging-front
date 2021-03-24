@@ -1,33 +1,24 @@
 import "antd/dist/antd.css"
 import React, { useEffect } from 'react'
 import { Layout } from 'antd'
-import { useRecoilValue, useRecoilState} from "recoil"
+import { useRecoilValue, useRecoilState, useSetRecoilState} from "recoil"
 import Axios from 'axios'
-import { relatedTags } from '../atoms/tags'
-
 import TagDisplay from '../components/TagsDisplay/TagsDisplay'
-import TagSearch from '../components/TagSearch/TagSearch'
+import TagSearch from '../components/TagsSearch/TagSearch'
 import VerticalStep from '../components/VerticalStep/VerticalStep'
-import stepStatus from '../atoms/step'
+import stepStatus from '../states/step'
 import UploadPage from '../components/UploadSpace/uploadSpace'
-import FilesDisplay from "../components/FileDisplay/FilesDisplay"
+import FilesDisplay from "../components/FilesDisplay/FilesDisplay"
+import allTags from '../states/allTags'
 const { Sider, Content } = Layout
 
 export default function TutorialPage() {
-  
-  const [related, setRelated] = useRecoilState(relatedTags)
-
+  const allTagsSet = useSetRecoilState(allTags)
   useEffect(() => {
-        Axios.get('http://localhost:5000/demo/data')
-        .then(res => {
-            const tagList = res.data
-            console.log(tagList)
-            const newMap = new Map(related)
-            tagList.forEach(tag => {
-                newMap.set(tag.name, tag.related)
-            })
-            setRelated(newMap)
-        })        
+        Axios.get('http://localhost:5000/demo/alltag')
+          .then(res => {
+              allTagsSet(res.data)
+          })        
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -57,7 +48,7 @@ export default function TutorialPage() {
               <br></br><br></br>
               <TagSearch option='tags'/>
               <br></br><br></br>
-              <UploadPage/>
+              {/* <UploadPage/> */}
               </>
             }
             {step.currentIndex === 3 &&
@@ -68,7 +59,7 @@ export default function TutorialPage() {
               <br></br><br></br>
               <TagSearch option='tags'/>
               <br></br><br></br>
-              <UploadPage/>
+              {/* <UploadPage/> */}
               </>
             }
         </Content>

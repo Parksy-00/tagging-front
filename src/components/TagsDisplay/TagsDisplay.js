@@ -1,36 +1,22 @@
 import React from 'react'
-import {recommandList, selectedTags} from '../../atoms/tags'
 import { Space, Tag } from 'antd'
-import { useRecoilValue, useSetRecoilState, useRecoilState } from 'recoil';
-import {fileAtom} from '../../atoms/file'
-import Axios from 'axios'
 import 'antd/dist/antd.css'
+import { useRecoilValue, useRecoilState } from 'recoil'
+import selectedTags from '../../states/selectedTags'
+import recommandTags from '../../states/recommandTags'
+
 
 const TagDisplay = () => {
-    const list = useRecoilValue(recommandList)
-    // const tagMapUpdater = useSetRecoilState(relatedTags)
     const [selected, setSelected] = useRecoilState(selectedTags)
-    const setFiles = useSetRecoilState(fileAtom)
-    // function deleteTag(tag) {
-    //     tagMapUpdater((tagMap) => {
-    //         tagMap.delete(tag)
-    //         return tagMap
-    //     })
-    // }   
+    const list = useRecoilValue(recommandTags)
+    console.log('tagdisplay')
+    console.log(list)
     const onClick = (e, i) => {
         let newSelected = [
             ...selected,
             list[i]
         ]
         setSelected(() => newSelected)
-
-        const body = { selected: newSelected}
-        Axios.post('http://localhost:5000/demo/search', body)
-            .then(res => {
-                const files = res.data
-                console.log(files)
-                setFiles(files)
-            })
     }
 
     return (

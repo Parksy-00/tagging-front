@@ -1,6 +1,6 @@
 import { atom } from 'recoil'
 
-let StepStatus = atom({
+const StepStatus = atom({
   key: 'stepStatus',
   default: {
       currentIndex: 0

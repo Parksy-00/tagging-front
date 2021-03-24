@@ -1,11 +1,13 @@
 import React from 'react'
 import { Space, Avatar } from 'antd'
 import { useRecoilValue } from 'recoil';
-import {fileAtom} from '../../atoms/file'
+import matchedFiles from '../../states/matchedFiles'
 import 'antd/dist/antd.css'
 
 const FilesDisplay = () => {
-    const files = useRecoilValue(fileAtom)
+    const files = useRecoilValue(matchedFiles)
+    console.log('filedisplay')
+    console.log(files)
 
     return (
         <Space size={[16, 16]} wrap style={{margin:"50px"}}>
