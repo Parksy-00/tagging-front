@@ -7,14 +7,15 @@ import recommandTags from '../../states/recommandTags'
 
 const TagSearch = (props) => {
     let canPick = useRecoilValue(recommandTags)
-
-    console.log('tagsearch')
-    console.log(canPick)
     canPick = canPick.map((item) => (<Select.Option key={item} value={item}>
                                         {item}
                                      </Select.Option>))
 
     const [selected, setSelected] = useRecoilState(selectedTags)
+
+    console.log('TagSearch')
+    console.log(canPick)
+    console.log('--------------------')
 
     function handleChange(newSelected) {
         setSelected(newSelected)

@@ -2,7 +2,7 @@ import { atom } from 'recoil'
 
 const selectedTags = atom({
     key: 'select',
-    default: ['6월'],
+    default: [''],
 })
 
 export default selectedTags

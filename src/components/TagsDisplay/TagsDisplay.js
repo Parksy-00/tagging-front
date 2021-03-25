@@ -9,8 +9,9 @@ import recommandTags from '../../states/recommandTags'
 const TagDisplay = () => {
     const [selected, setSelected] = useRecoilState(selectedTags)
     const list = useRecoilValue(recommandTags)
-    console.log('tagdisplay')
+    console.log(tagsDisplay)
     console.log(list)
+    console.log('--------------------')
     const onClick = (e, i) => {
         let newSelected = [
             ...selected,
