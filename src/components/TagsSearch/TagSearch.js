@@ -13,6 +13,10 @@ const TagSearch = (props) => {
 
     const [selected, setSelected] = useRecoilState(selectedTags)
 
+    console.log('selected')
+    console.log(selected)
+    console.log('--------------------')
+
     console.log('TagSearch')
     console.log(canPick)
     console.log('--------------------')

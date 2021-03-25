@@ -64,7 +64,6 @@ export default function TutorialPage() {
               </>
             }
           </Suspense>
-            
         </Content>
       </Layout>
     </div>

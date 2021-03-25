@@ -17,8 +17,8 @@ const recommandTags = selector({
         
         else {
             let ret = new Set([])
-            files.forEach(tags => {ret = new Set(...ret, ...tags)})
-            return [...ret].slice(selected.length)
+            files.forEach(tags => {ret = new Set([...ret, ...tags])})
+            return [...ret].filter(tag => !selected.includes(tag))
         }
     }
 })
