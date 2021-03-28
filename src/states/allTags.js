@@ -2,7 +2,7 @@ import { atom } from 'recoil'
 
 const allTags = atom({
     key: 'all',
-    default: ['2']
+    default: ['']
 })
 
 export default allTags
