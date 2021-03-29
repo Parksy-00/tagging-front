@@ -11,13 +11,12 @@ export default function LoginPage() {
   return (
     <div className="LoginPage" style={{height:"100vh", width:"100%"}}>
       <Layout>
-        <Sider theme='light' width="400px" style={{minHeight:"100vh"}}>
-          <Login/>
-        </Sider>
-
         <Content>
           <Intro/>
         </Content>
+        <Sider theme='light' width="450px" style={{minHeight:"100vh"}}>
+          <Login/>
+        </Sider>
       </Layout>
     </div>
   );

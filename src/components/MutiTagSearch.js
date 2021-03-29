@@ -14,10 +14,9 @@ const MultiTagSearchAndDisplay = (props) => {
         <div>
             <TagDisplay searchBarID={currentID}/>
             {IDs.map((ID, i) => (
-                <div key={i}>
+                <div key={i} style={{marginTop:"20px"}}>
                     {/* index as key is anti-pattern */}
-                    <br></br><br></br>
-                    <TagSearch option={props.option} searchBarID={ID}/> 
+                    <TagSearch option={props.option} searchBarID={ID} /> 
                 </div>
             ))}
         </div>

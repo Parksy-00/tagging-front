@@ -25,11 +25,12 @@ const TagSearch = (props) => {
                 placeholder="태그를 입력하세요." 
                 onChange={newSelected => (setSelected(newSelected))}
                 onFocus={() => setCurrentID(props.searchBarID)}
+                allowClear={true}
                 value={selected}
                 //notFoundContent옵션으로 컴포넌트 주면 
                 //검색결과가 없을 때 출력 수정 가능
                 >
-                    
+            
             {canPick}
         </Select>
     )

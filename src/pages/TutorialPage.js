@@ -9,7 +9,7 @@ import VerticalStep from '../components/VerticalStep/VerticalStep'
 import stepStatus from '../states/step'
 import FilesDisplay from "../components/FilesDisplay/FilesDisplay"
 import useAllTags from '../hooks/useAllTags'
-const { Sider, Content } = Layout
+const { Sider, Content, Header } = Layout
 
 export default function TutorialPage() {
 
@@ -19,17 +19,14 @@ export default function TutorialPage() {
   return (
     <div className="TutorialPage" style={{height:"100vh", width:"100%"}}>
       <Layout>
-        <Sider theme='light' width="400px" style={{minHeight:"100vh", position:"relative"}}>
-          <VerticalStep/>
-        </Sider>
-        <Content>
-            {step.currentIndex === 1 && 
+        <Header style={{backgroundColor:'#fff', height:"10vh", display:'flex', alignItems:'center', justifyContent:'center', borderBottom:"1px solid #E5E7E9"}}>
+           <VerticalStep/>
+        </Header>
+        <Layout>
+          <Sider theme='light' width="500px" style={{minHeight:"90vh", position:"relative", padding:'30px'}}>
+          {step.currentIndex === 1 && 
               //탐색하기
-              <>
-              <br></br><br></br>
               <MultiTagSearch option='multiple'/>
-              <FilesDisplay/>
-              </> 
             }
             {step.currentIndex === 2 && 
               //직접 묘사하기
@@ -53,7 +50,13 @@ export default function TutorialPage() {
               {/* <UploadPage/> */}
               </>
             }
-        </Content>
+          </Sider>
+          <Content>
+            <FilesDisplay/>
+          </Content>
+        
+        </Layout>
+        
       </Layout>
     </div>
   );
