@@ -3,7 +3,7 @@ import { Layout } from 'antd'
 import React from 'react'
 import { useRecoilValue} from "recoil"
 import TagDisplay from '../components/TagsDisplay/TagsDisplay'
-import MultiTagSearch from '../components/MutiTagSearch'
+import MultiTagSearch from '../components/MultiTagSearch/MutiTagSearch'
 import TagSearch from '../components/TagsSearch/TagSearch'
 import VerticalStep from '../components/VerticalStep/VerticalStep'
 import stepStatus from '../states/step'

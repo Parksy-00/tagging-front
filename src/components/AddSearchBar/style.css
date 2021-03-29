@@ -1,0 +1,13 @@
+.addSearch {
+    position: relative;
+    background-color: #fff;
+    border: 1px dashed #d9d9d9;
+    border-radius: 2px;
+    height: 31.97px; 
+    margin-top:20px; 
+    cursor:pointer; 
+    display:flex; 
+    justify-content:center;
+    align-items: center;
+
+}

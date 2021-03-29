@@ -2,7 +2,7 @@ import { atom } from 'recoil'
 
 const allFiles = atom({
     key: 'allFiles',
-    default: [[], []]
+    default: []
 })
 
 export default allFiles

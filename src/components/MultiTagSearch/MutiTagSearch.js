@@ -1,10 +1,11 @@
 import 'antd/dist/antd.css';
 import { Divider } from 'antd';
 import { useRecoilValue } from "recoil"
-import TagSearch from '../components/TagsSearch/TagSearch'
-import TagDisplay from '../components/TagsDisplay/TagsDisplay'
-import searchBarIDs from '../states/searchBarIDs'
-import currentSearchBar from '../states/currentSearchBar'
+import TagSearch from '../TagsSearch/TagSearch'
+import TagDisplay from '../TagsDisplay/TagsDisplay'
+import searchBarIDs from '../../states/searchBarIDs'
+import currentSearchBar from '../../states/currentSearchBar'
+import AddSearchBar from '../AddSearchBar/AddSearchBar'
 
 const MultiTagSearchAndDisplay = (props) => {
     const IDs =  useRecoilValue(searchBarIDs)
@@ -19,6 +20,7 @@ const MultiTagSearchAndDisplay = (props) => {
                     <TagSearch option={props.option} searchBarID={ID} /> 
                 </div>
             ))}
+            <AddSearchBar/>
         </div>
     )
 }
