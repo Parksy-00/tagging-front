@@ -3,6 +3,7 @@ import { Layout } from 'antd'
 import React from 'react'
 import { useRecoilValue} from "recoil"
 import TagDisplay from '../components/TagsDisplay/TagsDisplay'
+import MultiTagSearch from '../components/MutiTagSearch'
 import TagSearch from '../components/TagsSearch/TagSearch'
 import VerticalStep from '../components/VerticalStep/VerticalStep'
 import stepStatus from '../states/step'
@@ -11,6 +12,7 @@ import useAllTags from '../hooks/useAllTags'
 const { Sider, Content } = Layout
 
 export default function TutorialPage() {
+
   useAllTags([]);
 
   let step = useRecoilValue(stepStatus)
@@ -25,11 +27,10 @@ export default function TutorialPage() {
               //탐색하기
               <>
               <br></br><br></br>
-              <TagDisplay/>
-              <br></br><br></br>
-              <TagSearch option='multiple'/>
+              <MultiTagSearch option='multiple'/>
               <FilesDisplay/>
-              </> }
+              </> 
+            }
             {step.currentIndex === 2 && 
               //직접 묘사하기
               <>

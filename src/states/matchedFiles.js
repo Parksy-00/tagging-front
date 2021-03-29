@@ -1,6 +1,6 @@
-import { atom } from 'recoil'
+import { atomFamily } from 'recoil'
 
-const matchedFiles = atom({
+const matchedFiles = atomFamily({
     key: 'matchedFiles',
     default: []
 })

@@ -1,6 +1,6 @@
-import { atom } from 'recoil'
+import { atomFamily } from 'recoil'
 
-const selectedTags = atom({
+const selectedTags = atomFamily({
     key: 'selectedTags',
     default: [],
 })

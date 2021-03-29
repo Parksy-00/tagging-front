@@ -1,13 +1,13 @@
-import { selector } from 'recoil'
+import { selectorFamily } from 'recoil'
 import matchedFiles from './matchedFiles'
 import selectedTags from './selectedTags'
 import allTags from './allTags'
 
-const recommandTags = selector({
+const recommandTags = selectorFamily({
     key: 'recommandTags',
-    get: ({get}) => {
-        const selected = get(selectedTags)
-        const files = get(matchedFiles).map(_ => _.tags)
+    get: (searchBarID) => ({get}) => {
+        const selected = get(selectedTags(searchBarID))
+        const files = get(matchedFiles(searchBarID)).map(_ => _.tags)
         const defaultTags = get(allTags)
 
         if(files.length === 0) return defaultTags

@@ -2,10 +2,10 @@ import 'antd/dist/antd.css'
 import { Space, Avatar } from 'antd'
 import React from 'react'
 import { useRecoilValue } from 'recoil';
-import matchedFiles from '../../states/matchedFiles'
+import unionedMatch from '../../states/unionedMatch';
 
 const FilesDisplay = () => {
-    const files = useRecoilValue(matchedFiles)
+    const files = useRecoilValue(unionedMatch)
 
     return (
         <Space size={[16, 16]} wrap style={{margin:"50px"}}>
