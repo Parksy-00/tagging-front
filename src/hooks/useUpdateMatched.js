@@ -16,23 +16,6 @@ const useUpdateMatched = (newSelected, searchBarID) => {
 
     }, [newSelected, searchBarID])
 
-    useEffect(() => {
-        console.log('unionedFiles')
-        console.log(unionedFiles)
-        console.log('-----------------')
-        console.log('thisFile')
-        console.log(thisFile)
-        console.log('-----------------')
-        console.log('qdwdqwddqwdqw')
-        setUnionedFiles([...new Set([...unionedFiles, ...thisFile])])
-        console.log('unionedFiles')
-        console.log(unionedFiles)
-        console.log('-----------------')
-        console.log('thisFile')
-        console.log(thisFile)
-        console.log('-----------------')
-
-    }, [matchedFiles(searchBarID)])
 }
 
 export default useUpdateMatched
