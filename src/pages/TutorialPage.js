@@ -9,11 +9,9 @@ import VerticalStep from '../components/VerticalStep/VerticalStep'
 import stepStatus from '../states/step'
 import FilesDisplay from "../components/FilesDisplay/FilesDisplay"
 import useAllTags from '../hooks/useAllTags'
-import searchBarIDs from '../states/searchBarIDs'
 const { Sider, Content, Header } = Layout
 
 export default function TutorialPage() {
-  const setNewSearchBarID = useSetRecoilState(searchBarIDs)
   useAllTags([]);
 
   let step = useRecoilValue(stepStatus)
@@ -27,12 +25,7 @@ export default function TutorialPage() {
           <Sider theme='light' width="500px" style={{minHeight:"90vh", position:"relative", padding:'30px'}}>
             {step.currentIndex === 1 && 
               //탐색하기
-              <>
                 <MultiTagSearch option='multiple'/>
-                <button onClick={
-                  () => setNewSearchBarID(old => ([...old, old[old.length - 1] + 1]))}>+
-                </button>
-              </>
             }
             {step.currentIndex === 2 && 
               //직접 묘사하기

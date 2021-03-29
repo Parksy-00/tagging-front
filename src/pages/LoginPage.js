@@ -14,7 +14,7 @@ export default function LoginPage() {
         <Content>
           <Intro/>
         </Content>
-        <Sider theme='light' width="450px" style={{minHeight:"100vh"}}>
+        <Sider theme='light' width="400px" style={{minHeight:"100vh"}}>
           <Login/>
         </Sider>
       </Layout>
