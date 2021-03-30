@@ -13,8 +13,7 @@ const useUpdateUnionMatched = (searchBarID) => {
 
     useEffect(() => {
         if(Object.keys(all).length !== 0) {
-            const keys = Object.keys(all).filter((key) => IDs.includes(parseInt(key)))
-            const files = keys.map((key) => all[key]).flat(1)
+            const files = Object.values(all).flat(1)
 
             let ret = []
             const set = new Set()
