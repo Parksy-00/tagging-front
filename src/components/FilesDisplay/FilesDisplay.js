@@ -5,7 +5,8 @@ import { useRecoilValue } from 'recoil';
 import unionedMatch from '../../states/unionedMatch';
 
 const FilesDisplay = () => { 
-    const files = useRecoilValue(unionedMatch).flat(1)
+    const files = useRecoilValue(unionedMatch)
+    console.log(files)
     
     return (
         <Space size={[16, 16]} wrap style={{margin:"50px"}}>

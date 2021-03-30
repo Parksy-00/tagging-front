@@ -11,9 +11,20 @@ const useUpdateUnionMatched = (searchBarID) => {
 
     useEffect(() => {
         if(Object.keys(all).length !== 0) {
-            setUnionedFiles(Object.values(all))
+            const files = Object.values(all).flat(1)
+            // Object.values(all) -> (파일이름, 파일태그들)객체의 배열이 검색창 수만큼 있는 배열
+
+            let ret = []
+            const set = new Set()
+            files.forEach(file => {
+                if(!set.has(file.name)) {
+                    set.add(file.name)
+                    ret = [...ret, file]
+                }
+            })
+            setUnionedFiles(ret)
         }
     }, [Files])
-}
+}   
 
 export default useUpdateUnionMatched
