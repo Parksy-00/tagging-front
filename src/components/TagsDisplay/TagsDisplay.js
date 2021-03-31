@@ -13,7 +13,7 @@ const TagDisplay = (props) => {
     useUpdateSoloMatched(selected, props.searchBarID)
     useUpdateUnionMatched(props.searchBarID)
 
-    const onClick = i => {
+    const updateSelected = (i) => {
         const newSelected = [
             ...selected,
             list[i]
@@ -26,7 +26,7 @@ const TagDisplay = (props) => {
             {list.map((name, index) => (
                 // <Tag closable onClose={() => deleteTag(name)}>{name}</Tag>
                 // index as key is anti-pattern
-                <Tag key={index} onClick={() => onClick(index)} style={{cursor:"pointer"}}>{name}</Tag>
+                <Tag key={index} onClick={() => updateSelected(index)} style={{cursor:"pointer"}}>{name}</Tag>
             ))}
         </Space>
     )

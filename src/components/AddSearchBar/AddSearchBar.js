@@ -9,7 +9,7 @@ export default function AddSearchBar() {
 
     const setIDs = useSetRecoilState(searchBarIDs)
 
-    const onClick = () => {
+    const insertNewId = () => {
         setIDs(oldIDs => [
             ...oldIDs,
             oldIDs[oldIDs.length - 1] + 1
@@ -17,7 +17,7 @@ export default function AddSearchBar() {
     }
 
     return (
-        <div className="addSearch" onClick={onClick}>
+        <div className="addSearch" onClick={insertNewId}>
             <PlusCircleTwoTone style={{marginRight:"5px"}} />
             <span>검색창 추가</span>
         </div>

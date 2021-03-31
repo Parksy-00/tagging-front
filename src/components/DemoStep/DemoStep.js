@@ -6,18 +6,23 @@ import stepStatus from '../../states/step'
 
 const { Step } = Steps;
 
-let VerticalStep = () => {
-  let [status, setstatus] = useRecoilState(stepStatus);
-  let current = status.currentIndex;
+const DemoStep = () => {
+  const [status, setstatus] = useRecoilState(stepStatus);
+  const current = status.currentIndex;
 
-  let onChange = (current) => {
+  const changeCurrentIndex = (current) => {
     setstatus({
       currentIndex: current
     })
   }
 
   return (
-    <Steps current={current} onChange={onChange} direction="horizontal" size="small" style={{width:'65%'}}>
+    <Steps current={current} 
+           onChange={changeCurrentIndex} 
+           direction="horizontal" 
+           size="small" 
+           style={{width:'65%'}}>
+
       <Step title="시작하기"  />
       <Step title="탐색하기" />
       <Step title="관리하기(가제)" />
@@ -27,4 +32,4 @@ let VerticalStep = () => {
   );
 }
 
-export default VerticalStep
+export default DemoStep

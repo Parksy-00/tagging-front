@@ -15,17 +15,13 @@ const TagSearch = (props) => {
     const [currentID, setCurrentID] = useRecoilState(currentSearchBar)
     const setSeachBarIDs = useSetRecoilState(searchBarIDs)
     const canPick = useRecoilValue(recommandTags(props.searchBarID))
-                        .map((item) => (<Select.Option key={item} value={item}>
-                                            {item}
-                                        </Select.Option>))
-                                        
     const [selected, setSelected] = useRecoilState(selectedTags(props.searchBarID))
     const [filesByAllSearchBar, setFilesByAllSearchBar] = useRecoilState(allFiles)
+    const [isOpen, setIsOpen] = useState(false)
+    
     useUpdateSoloMatched(selected, props.searchBarID)
     useUpdateUnionMatched(props.searchBarID)
     
-    const [isOpen, setIsOpen] = useState(false)
-
     const handleClear = () => {
         setCurrentID(0)
         setSeachBarIDs(old => old.filter(ID => ID === 0 || 
@@ -57,7 +53,9 @@ const TagSearch = (props) => {
                 //검색결과가 없을 때 출력 수정 가능
                 >
             
-            {canPick}
+            {canPick.map((item) => (<Select.Option key={item} value={item}>
+                                        {item}
+                                    </Select.Option>))}
         </Select>
     )
 }
