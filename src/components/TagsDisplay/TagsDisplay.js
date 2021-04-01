@@ -26,7 +26,7 @@ const TagDisplay = (props) => {
             {list.map((name, index) => (
                 // <Tag closable onClose={() => deleteTag(name)}>{name}</Tag>
                 // index as key is anti-pattern
-                <Tag key={index} onClick={() => updateSelected(index)} style={{cursor:"pointer"}}>{name}</Tag>
+                <Tag color="geekblue" key={index} onClick={() => updateSelected(index)} style={{cursor:"pointer"}}>{name}</Tag>
             ))}
         </Space>
     )

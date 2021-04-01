@@ -1,6 +1,6 @@
 import 'antd/dist/antd.css'
 import './style.css'
-import { Select } from 'antd'
+import { Select, Tag } from 'antd'
 import React, { useState } from 'react'
 import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
 import selectedTags from '../../states/selectedTags'
@@ -33,6 +33,19 @@ const TagSearch = (props) => {
         setFilesByAllSearchBar(newAll)
     }
 
+    const tagRender = (props) => {
+        const { label, closable, onClose } = props;
+        return (
+            <Tag color="geekblue" 
+                 closable={closable} 
+                 onClose={onClose} 
+                 style={{ marginRight: 3 }}>
+                
+                {label}
+            </Tag>
+        )
+    }
+
     return (
         <Select mode={props.option}
                 style={{ width: '100%' }}
@@ -49,6 +62,7 @@ const TagSearch = (props) => {
                 onBlur={() => setIsOpen(false)}
                 autoFocus={true}
                 listHeight={128}
+                tagRender={tagRender}
                 //notFoundContent옵션으로 컴포넌트 주면 
                 //검색결과가 없을 때 출력 수정 가능
                 >

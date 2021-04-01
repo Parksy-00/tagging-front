@@ -2,10 +2,8 @@ import "antd/dist/antd.css"
 import { Layout } from 'antd'
 import React from 'react'
 import { useRecoilValue } from "recoil"
-import TagDisplay from '../components/TagsDisplay/TagsDisplay'
 import MultiTagSearch from '../components/MultiTagSearch/MutiTagSearch'
-import TagSearch from '../components/TagsSearch/TagSearch'
-import VerticalStep from '../components/VerticalStep/VerticalStep'
+import DemoStep from '../components/DemoStep/DemoStep'
 import stepStatus from '../states/step'
 import FilesDisplay from "../components/FilesDisplay/FilesDisplay"
 import useAllTags from '../hooks/useAllTags'
@@ -19,7 +17,7 @@ export default function TutorialPage() {
     <div className="TutorialPage" style={{height:"100vh", width:"100%"}}>
       <Layout>
         <Header style={{backgroundColor:'#fff', height:"10vh", display:'flex', alignItems:'center', justifyContent:'center', borderBottom:"1px solid #E5E7E9"}}>
-           <VerticalStep/>
+           <DemoStep/>
         </Header>
         <Layout>
           <Sider theme='light' width="500px" style={{minHeight:"90vh", position:"relative", padding:'30px'}}>
