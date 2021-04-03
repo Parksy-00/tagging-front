@@ -12,11 +12,11 @@ export default function AddSearchBar() {
     const setCurrentSearchID = useSetRecoilState(CurrentSearchID);
     
     const insertNewId = () => {
-        setCurrentSearchID(allSearchIDs[allSearchIDs.length - 1] + 1);
+        setCurrentSearchID(allSearchIDs.slice(-1)[0] + 1);
 
         setAllSearchIDs(oldIDs => [
             ...oldIDs,
-            oldIDs[oldIDs.length - 1] + 1
+            oldIDs.slice(-1)[0] + 1
         ])
     }
 
