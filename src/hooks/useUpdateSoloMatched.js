@@ -1,18 +1,18 @@
 import { useEffect } from "react"
 import { useRecoilState, useSetRecoilState } from "recoil"
 import Axios from 'axios'
-import matchedFiles from '../states/matchedFiles'
-import allFiles from "../states/allFiles"
+import MatchedFiles from '../states/matchedFiles'
+import AllFiles from "../states/AllFiles"
 
 const useUpdateSoloMatched = (newSelected, searchBarID) => {
-    const setFiles = useSetRecoilState(matchedFiles(searchBarID))
-    const [all, setAll] = useRecoilState(allFiles)
+    const setMatchedFiles = useSetRecoilState(MatchedFiles(searchBarID))
+    const [allFiles, setAllFiles] = useRecoilState(AllFiles)
 
     useEffect(async () => {
         const body = { selected: newSelected }
         const response = await Axios.post('http://localhost:5000/demo/search', body)
-        setFiles(response.data)    
-        setAll({...all, [searchBarID]: response.data})
+        setMatchedFiles(response.data)    
+        setAllFiles({...allFiles, [searchBarID]: response.data})
 
     }, [newSelected, searchBarID])
 

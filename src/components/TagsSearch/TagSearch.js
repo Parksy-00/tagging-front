@@ -3,28 +3,30 @@ import './style.css'
 import { Select, Tag } from 'antd'
 import React, { useState } from 'react'
 import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
-import selectedTags from '../../states/selectedTags'
-import recommandTags from '../../states/recommandTags'
-import currentSearchBar from '../../states/currentSearchBar'
-import searchBarIDs from '../../states/searchBarIDs'
-import allFiles from '../../states/allFiles'
+import SelectedTags from '../../states/selectedTags'
+import CurrentSearchID from '../../states/currentSearchID'
+import AllSearchIDs from '../../states/allSearchIDs'
+import AllFiles from '../../states/AllFiles'
+import RecommandedTags from '../../states/recommandedTags'
+
+
 
 const TagSearch = (props) => {
-    const [currentID, setCurrentID] = useRecoilState(currentSearchBar)
-    const setSeachBarIDs = useSetRecoilState(searchBarIDs)
-    const canPick = useRecoilValue(recommandTags(props.searchBarID))
-    const [selected, setSelected] = useRecoilState(selectedTags(props.searchBarID))
-    const [filesByAllSearchBar, setFilesByAllSearchBar] = useRecoilState(allFiles)
+    const [currentSearchID, setCurrentSearchID] = useRecoilState(CurrentSearchID)
+    const setAllSeachIDs = useSetRecoilState(AllSearchIDs)
+    const recommandedTags = useRecoilValue(RecommandedTags(props.searchBarID))
+    const [selectedTags, setSelectedTags] = useRecoilState(SelectedTags(props.searchBarID))
+    const [allFiles, setAllFiles] = useRecoilState(AllFiles)
     const [isOpen, setIsOpen] = useState(false)
     
     const handleClear = () => {
-        setCurrentID(0)
-        setSeachBarIDs(old => old.filter(ID => ID === 0 || 
+        setCurrentSearchID(0)
+        setAllSeachIDs(old => old.filter(ID => ID === 0 || 
                                                ID !== props.searchBarID))                     
         
         const clearedID = props.searchBarID.toString()
-        const {[clearedID]: _, ...withOutClearedID} = {...filesByAllSearchBar};
-        setFilesByAllSearchBar(withOutClearedID)
+        const {[clearedID]: _, ...withOutClearedID} = {...allFiles};
+        setAllFiles(withOutClearedID)
     }
 
     const tagRender = (props) => {
@@ -43,12 +45,12 @@ const TagSearch = (props) => {
     return (
         <Select mode={props.option}
                 style={{ width: '100%' }}
-                className={props.searchBarID === currentID ? 'current' : null}
+                className={props.searchBarID === currentSearchID ? 'current' : null}
                 placeholder="태그를 입력하세요." 
-                onChange={newSelected => (setSelected(newSelected))}
-                onFocus={() => setCurrentID(props.searchBarID)}
+                onChange={newSelected => (setSelectedTags(newSelected))}
+                onFocus={() => setCurrentSearchID(props.searchBarID)}
                 allowClear={true}
-                value={selected}
+                value={selectedTags}
                 onClear={handleClear}
                 open={isOpen}
                 onInputKeyDown={() => setIsOpen(true)}
@@ -61,7 +63,7 @@ const TagSearch = (props) => {
                 //검색결과가 없을 때 출력 수정 가능
                 >
             
-            {canPick.map((item) => (<Select.Option key={item} value={item}>
+            {recommandedTags.map((item) => (<Select.Option key={item} value={item}>
                                         {item}
                                     </Select.Option>))}
         </Select>

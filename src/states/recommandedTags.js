@@ -2,10 +2,9 @@ import { selectorFamily } from 'recoil'
 import matchedFiles from './matchedFiles'
 import selectedTags from './selectedTags'
 import allTags from './allTags'
-import unionedMatched from './unionedMatch'
 
-const recommandTags = selectorFamily({
-    key: 'recommandTags',
+const recommandedTags = selectorFamily({
+    key: 'recommandedTags',
     get: (searchBarID) => ({get}) => {        
         const files = get(matchedFiles(searchBarID))
         const selected = get(selectedTags(searchBarID))
@@ -21,4 +20,4 @@ const recommandTags = selectorFamily({
     }
 })
 
-export default recommandTags
+export default recommandedTags

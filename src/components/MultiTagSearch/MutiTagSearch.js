@@ -2,24 +2,24 @@ import 'antd/dist/antd.css';
 import { useRecoilValue } from "recoil"
 import TagSearch from '../TagsSearch/TagSearch'
 import TagDisplay from '../TagsDisplay/TagsDisplay'
-import searchBarIDs from '../../states/searchBarIDs'
-import currentSearchBar from '../../states/currentSearchBar'
+import AllSearchIDs from '../../states/allSearchIDs'
+import CurrentSearchID from '../../states/currentSearchID'
 import AddSearchBar from '../AddSearchBar/AddSearchBar'
-import selectedTags from '../../states/selectedTags'
+import SelectedTags from '../../states/selectedTags'
 import useUpdateSoloMatched from '../../hooks/useUpdateSoloMatched'
 import useUpdateUnionMatched from '../../hooks/useUpdateUnionMatched'
 
 const MultiTagSearchAndDisplay = (props) => {
-    const IDs =  useRecoilValue(searchBarIDs)
-    const currentID = useRecoilValue(currentSearchBar)
-    const selected = useRecoilValue(selectedTags(currentID))
+    const allSearchIDs =  useRecoilValue(AllSearchIDs)
+    const currentSearchID = useRecoilValue(CurrentSearchID)
+    const selectedTags = useRecoilValue(SelectedTags(currentSearchID))
 
-    useUpdateSoloMatched(selected, currentID)
-    useUpdateUnionMatched(currentID)
+    useUpdateSoloMatched(selectedTags, currentSearchID)
+    useUpdateUnionMatched(currentSearchID)
     return (
         <div>
-            <TagDisplay searchBarID={currentID}/>
-            {IDs.map((ID, i) => (
+            <TagDisplay searchBarID={currentSearchID}/>
+            {allSearchIDs.map((ID, i) => (
                 <div key={i} style={{marginTop:"20px"}}>
                     {/* index as key is anti-pattern */}
                     <TagSearch option={props.option} searchBarID={ID} /> 
