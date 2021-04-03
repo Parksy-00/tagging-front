@@ -2,14 +2,19 @@ import 'antd/dist/antd.css'
 import {PlusCircleTwoTone} from '@ant-design/icons'
 import React from 'react'
 import './style.css'
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 import searchBarIDs from '../../states/searchBarIDs'
+import currentSearchBar from '../../states/currentSearchBar';
 
 export default function AddSearchBar() {
 
     const setIDs = useSetRecoilState(searchBarIDs)
-
+    const setCurrentID = useSetRecoilState(currentSearchBar);
+    const IDs =  useRecoilValue(searchBarIDs)
+    
     const insertNewId = () => {
+        setCurrentID(IDs[IDs.length - 1] + 1);
+
         setIDs(oldIDs => [
             ...oldIDs,
             oldIDs[oldIDs.length - 1] + 1

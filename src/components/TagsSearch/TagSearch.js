@@ -5,8 +5,6 @@ import React, { useState } from 'react'
 import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
 import selectedTags from '../../states/selectedTags'
 import recommandTags from '../../states/recommandTags'
-import useUpdateSoloMatched from '../../hooks/useUpdateSoloMatched'
-import useUpdateUnionMatched from '../../hooks/useUpdateUnionMatched'
 import currentSearchBar from '../../states/currentSearchBar'
 import searchBarIDs from '../../states/searchBarIDs'
 import allFiles from '../../states/allFiles'
@@ -18,9 +16,6 @@ const TagSearch = (props) => {
     const [selected, setSelected] = useRecoilState(selectedTags(props.searchBarID))
     const [filesByAllSearchBar, setFilesByAllSearchBar] = useRecoilState(allFiles)
     const [isOpen, setIsOpen] = useState(false)
-    
-    useUpdateSoloMatched(selected, props.searchBarID)
-    useUpdateUnionMatched(props.searchBarID)
     
     const handleClear = () => {
         setCurrentID(0)

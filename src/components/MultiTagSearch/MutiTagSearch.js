@@ -5,11 +5,17 @@ import TagDisplay from '../TagsDisplay/TagsDisplay'
 import searchBarIDs from '../../states/searchBarIDs'
 import currentSearchBar from '../../states/currentSearchBar'
 import AddSearchBar from '../AddSearchBar/AddSearchBar'
+import selectedTags from '../../states/selectedTags'
+import useUpdateSoloMatched from '../../hooks/useUpdateSoloMatched'
+import useUpdateUnionMatched from '../../hooks/useUpdateUnionMatched'
 
 const MultiTagSearchAndDisplay = (props) => {
     const IDs =  useRecoilValue(searchBarIDs)
     const currentID = useRecoilValue(currentSearchBar)
+    const selected = useRecoilValue(selectedTags(currentID))
 
+    useUpdateSoloMatched(selected, currentID)
+    useUpdateUnionMatched(currentID)
     return (
         <div>
             <TagDisplay searchBarID={currentID}/>

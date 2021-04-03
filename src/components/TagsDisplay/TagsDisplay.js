@@ -10,8 +10,6 @@ import useUpdateUnionMatched from '../../hooks/useUpdateUnionMatched'
 const TagDisplay = (props) => {
     const [selected, setSelected] = useRecoilState(selectedTags(props.searchBarID))
     const list = useRecoilValue(recommandTags(props.searchBarID))
-    useUpdateSoloMatched(selected, props.searchBarID)
-    useUpdateUnionMatched(props.searchBarID)
 
     const updateSelected = (i) => {
         const newSelected = [
