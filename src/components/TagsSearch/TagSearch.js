@@ -6,7 +6,7 @@ import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
 import SelectedTags from '../../states/selectedTags'
 import CurrentSearchID from '../../states/currentSearchID'
 import AllSearchIDs from '../../states/allSearchIDs'
-import AllFiles from '../../states/AllFiles'
+import AllFiles from '../../states/allFiles'
 import RecommandedTags from '../../states/recommandedTags'
 
 

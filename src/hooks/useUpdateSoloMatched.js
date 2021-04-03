@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useRecoilState, useSetRecoilState } from "recoil"
 import Axios from 'axios'
 import MatchedFiles from '../states/matchedFiles'
-import AllFiles from "../states/AllFiles"
+import AllFiles from "../states/allFiles"
 
 const useUpdateSoloMatched = (newSelected, searchBarID) => {
     const setMatchedFiles = useSetRecoilState(MatchedFiles(searchBarID))

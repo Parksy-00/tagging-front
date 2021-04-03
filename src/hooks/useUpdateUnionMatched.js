@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import MatchedFiles from '../states/matchedFiles'
 import UnionedMatched from "../states/unionedMatch"
-import AllFiles from '../states/AllFiles'
+import AllFiles from '../states/allFiles'
 import AllSearchIDs from "../states/allSearchIDs"
 
 const useUpdateUnionMatched = (currentID) => {
