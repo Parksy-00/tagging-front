@@ -26,7 +26,9 @@ const GroupsDisplay = () => {
             {recommandedGroups.map((name, index) => (
                 // <Tag closable onClose={() => deleteTag(name)}>{name}</Tag>
                 // index as key is anti-pattern
+            
                 <Tag color="geekblue" key={index} onClick={() => updateSelected(index)} style={{cursor:"pointer"}}>{name}</Tag>
+                
             ))}
         </Space>
     )

@@ -7,7 +7,6 @@ import MatchedTags from '../../states/matchedTags'
 import RecommandedGroups from '../../states/recommandedGroups'
 
 
-
 const GroupsSearch = (props) => {
     const recommandedGroups = useRecoilValue(RecommandedGroups)
     const [selectedGroups, setSelectedGroups] = useRecoilState(SelectedGroups)
@@ -51,8 +50,8 @@ const GroupsSearch = (props) => {
                 >
             
             {recommandedGroups.map((item) => (<Select.Option key={item} value={item}>
-                                        {item}
-                                    </Select.Option>))}
+                                                {item}
+                                            </Select.Option>))}
         </Select>
     )
 }
