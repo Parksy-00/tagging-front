@@ -21,7 +21,7 @@ const DemoStep = () => {
            onChange={changeCurrentIndex} 
            direction="horizontal" 
            size="small" 
-           style={{width:'65%'}}>
+           style={{width:'65%', userSelect:'none'}}>
 
       <Step title="시작하기"  />
       <Step title="탐색하기" />

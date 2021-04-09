@@ -4,7 +4,7 @@ import Axios from 'axios'
 import MatchedFiles from '../states/matchedFiles'
 import AllFiles from "../states/allFiles"
 
-const useUpdateSoloMatched = (newSelected, searchBarID) => {
+const useUpdateMatchedFiles = (newSelected, searchBarID) => {
     const setMatchedFiles = useSetRecoilState(MatchedFiles(searchBarID))
     const [allFiles, setAllFiles] = useRecoilState(AllFiles)
 
@@ -18,4 +18,4 @@ const useUpdateSoloMatched = (newSelected, searchBarID) => {
 
 }
 
-export default useUpdateSoloMatched
+export default useUpdateMatchedFiles
