@@ -6,7 +6,7 @@ import AllSearchIDs from '../../states/allSearchIDs'
 import CurrentSearchID from '../../states/currentSearchID'
 import AddSearchBar from '../AddSearchBar/AddSearchBar'
 import SelectedTags from '../../states/selectedTags'
-import useUpdateSoloMatched from '../../hooks/useUpdateSoloMatched'
+import useUpdateSoloMatched from '../../hooks/useUpdateMatchedFiles'
 import useUpdateUnionMatched from '../../hooks/useUpdateUnionMatched'
 
 const MultiTagSearchAndDisplay = (props) => {

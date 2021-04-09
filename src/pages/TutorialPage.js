@@ -7,8 +7,8 @@ import DemoStep from '../components/DemoStep/DemoStep'
 import stepStatus from '../states/step'
 import FileContents from "../components/FileContents/FileContents"
 import useAllTags from '../hooks/useAllTags'
-import GroupsDisplay from "../components/GroupsDisplay/GroupsDisplay"
-import GroupsSearch from "../components/GroupsSearch/GroupsSearch"
+import GroupDisplay from "../components/GroupDisplay/GroupDisplay"
+import GroupSearch from "../components/GroupSearch/GroupSearch"
 import useAllGroups from "../hooks/useAllGroups"
 import TagContents from "../components/TagContents/TagContents"
 const { Sider, Content, Header } = Layout
@@ -39,9 +39,9 @@ export default function TutorialPage() {
             {step.currentIndex === 2 && 
               //관리하기(가제)
               <>
-                <GroupsDisplay />
+                <GroupDisplay />
                 <div style={{marginTop:'20px'}}>
-                  <GroupsSearch />
+                  <GroupSearch />
                 </div>
                 
               </>
