@@ -8,25 +8,18 @@ const { TabPane } = Tabs
 
 
 const TagDisplay = ({searchBarID}) => {
-    const AllGroups = useRecoilValue(allGroups)
+    const AllGroups = ['All', ...useRecoilValue(allGroups)]
 
     return (
-        <Tabs defaultActiveKey='all' 
+        <Tabs defaultActiveKey='All' 
               style={ { height: 300 } }>
-
-                <TabPane tab='All' 
-                         key='all' 
-                         style={ {overflowY: 'auto'} }>
-
-                    <TagsGrid searchBarID={searchBarID} />
-                </TabPane>
 
                 {AllGroups.map((name) => (
                     <TabPane tab={name} 
                              key={name}
                              style={ {overflowY: 'auto'} }>
 
-                        <TagsGrid searchBarID={searchBarID} />
+                        <TagsGrid searchBarID={searchBarID} currentTab={name} />
                     </TabPane>
                 ))}
         </Tabs>

@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { useRecoilState, useSetRecoilState } from "recoil"
+import { useSetRecoilState } from "recoil"
 import Axios from 'axios'
 import MatchedTags from '../states/matchedTags'
 
