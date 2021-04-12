@@ -1,9 +1,10 @@
 import 'antd/dist/antd.css'
-import { Space, Tag } from 'antd'
+import { Space, Tag, Tabs } from 'antd'
 import React from 'react'
 import { useRecoilValue, useRecoilState } from 'recoil'
 import SelectedTags from '../../states/selectedTags'
 import RecommandedTags from '../../states/recommandedTags'
+const { TabPane } = Tabs
 
 
 const TagDisplay = (props) => {
@@ -19,13 +20,23 @@ const TagDisplay = (props) => {
     }
 
     return (
-        <Space size={[8, 16]} wrap>
-            {recommandedTags.map((name, index) => (
-                // <Tag closable onClose={() => deleteTag(name)}>{name}</Tag>
-                // index as key is anti-pattern
-                <Tag color="geekblue" key={index} onClick={() => updateSelected(index)} style={{cursor:"pointer"}}>{name}</Tag>
-            ))}
-        </Space>
+        <>
+        <Tabs defaultActiveKey='all' 
+              style={ { height: 300 }}>
+
+                <TabPane tab='All' 
+                         key='all' 
+                         style={ {overflowY: 'auto'}
+                }>
+                    <Space size={[8, 16]} wrap>
+                        {recommandedTags.map((name, index) => (
+                            <Tag color="geekblue" key={name} onClick={() => updateSelected(index)} style={{cursor:"pointer"}}>{name}</Tag>
+                        ))}
+                    </Space>
+                </TabPane>
+
+        </Tabs>
+        </>
     )
 };
 
