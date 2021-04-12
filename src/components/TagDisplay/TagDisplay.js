@@ -12,12 +12,13 @@ const TagDisplay = ({searchBarID}) => {
 
     return (
         <Tabs defaultActiveKey='All' 
-              style={ { height: 300 } }>
+              >
 
                 {AllGroups.map((name) => (
                     <TabPane tab={name} 
                              key={name}
-                             style={ {overflowY: 'auto'} }>
+                             style={{height: '300px',
+                                     overflowY: 'auto'}}>
 
                         <TagsGrid searchBarID={searchBarID} currentTab={name} />
                     </TabPane>
