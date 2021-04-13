@@ -3,10 +3,10 @@ import './style.css'
 import { Avatar, List, Tag, Typography } from 'antd'
 import React, { useEffect } from 'react'
 
-
 const FileList = ({selectedItems, setSelectedItems, unionedMatch, setIsAllEnabled}) => {
 
-    if(unionedMatch.length != 0 && selectedItems.length == unionedMatch.length) setIsAllEnabled(true)
+    if(unionedMatch.length != 0 && 
+       selectedItems.length == unionedMatch.length) setIsAllEnabled(true)
     else setIsAllEnabled(false)
 
     useEffect(() => {
@@ -19,11 +19,11 @@ const FileList = ({selectedItems, setSelectedItems, unionedMatch, setIsAllEnable
             if(t.closest('.ant-select-selector')) return
             if(t.closest('.ant-tag')) return
             if(t.closest('.ant-btn')) return
-            for(const item of list.children) {
-                item.classList.remove('selected')
-            }
+
+            [].forEach.call(list.children, item => item.classList.remove('selected'))
             setSelectedItems([])
         }
+
         document.body.addEventListener('click', reset)
         
         return () => {
@@ -38,20 +38,16 @@ const FileList = ({selectedItems, setSelectedItems, unionedMatch, setIsAllEnable
         </div>
     )
 
-    const onClick = (e, file) => {
-        e.currentTarget.classList.toggle('selected')
-        if(selectedItems.some(_ => _.name == file.name)) {
-            setSelectedItems(selectedItems.filter(_ => _.name != file.name))
+    const onClick = (e, clickedItem) => {
+        if(e.currentTarget.classList.toggle('selected')) {
+            setSelectedItems(oldSelectedList => [...oldSelectedList, clickedItem])
         }
-        else {
-            setSelectedItems(oldstate => [...oldstate, file])
-        }
-        
+        else setSelectedItems(selectedItems.filter(_ => _.name != clickedItem.name))
     }
 
-    const item = (name, num) => (
+    const item = (name, nth) => (
         <div>
-            <Avatar style={{margin:'0 15px', userSelect:'none'}}>{num}</Avatar>
+            <Avatar style={{margin:'0 15px', userSelect:'none'}}>{nth}</Avatar>
             <Typography.Text className="file-name" style={{fontSize:'16px', verticalAlign:'middle'}}>{name}</Typography.Text>
         </div>
     )
@@ -71,7 +67,7 @@ const FileList = ({selectedItems, setSelectedItems, unionedMatch, setIsAllEnable
                         style={{borderBottom:"0.5px solid #d9d9d9"}}
                         onClick={(e) => onClick(e, file)}
                     >
-                        {item(file.name, i+1)}
+                        {item(file.name, i + 1)}
                     </List.Item>
                 )}
             />
