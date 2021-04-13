@@ -4,11 +4,10 @@ import { Avatar, List, Tag, Typography } from 'antd'
 import React, { useEffect } from 'react'
 
 
-const FileList = ({selected, setSelected, unionedMatch, setSelectAll}) => {
+const FileList = ({selectedItems, setSelectedItems, unionedMatch, setIsAllEnabled}) => {
 
-    console.log(selected)
-    if(unionedMatch.length != 0 && selected.length == unionedMatch.length) setSelectAll(true)
-    else setSelectAll(false)
+    if(unionedMatch.length != 0 && selectedItems.length == unionedMatch.length) setIsAllEnabled(true)
+    else setIsAllEnabled(false)
 
     useEffect(() => {
         const reset = (e) => {
@@ -23,11 +22,12 @@ const FileList = ({selected, setSelected, unionedMatch, setSelectAll}) => {
             for(const item of list.children) {
                 item.classList.remove('selected')
             }
-            setSelected([])
+            setSelectedItems([])
         }
         document.body.addEventListener('click', reset)
+        
         return () => {
-            setSelected([])
+            setSelectedItems([])
             document.body.removeEventListener('click', reset)
         }
     }, [])
@@ -40,11 +40,11 @@ const FileList = ({selected, setSelected, unionedMatch, setSelectAll}) => {
 
     const onClick = (e, file) => {
         e.currentTarget.classList.toggle('selected')
-        if(selected.some(_ => _.name == file.name)) {
-            setSelected(selected.filter(_ => _.name != file.name))
+        if(selectedItems.some(_ => _.name == file.name)) {
+            setSelectedItems(selectedItems.filter(_ => _.name != file.name))
         }
         else {
-            setSelected(oldstate => [...oldstate, file])
+            setSelectedItems(oldstate => [...oldstate, file])
         }
         
     }

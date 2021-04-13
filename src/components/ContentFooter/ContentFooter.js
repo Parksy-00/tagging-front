@@ -4,7 +4,7 @@ import { DownloadOutlined } from '@ant-design/icons'
 import { Typography, List, Button  } from 'antd'
 const Text = Typography.Text
 
-function ContentFooter({selected}) {
+function ContentFooter({selectedItems}) {
 
     const actions = [
                         <Button type="primary" style={{margin:'10px 10px'}}><DownloadOutlined />다운로드</Button>,
@@ -19,7 +19,7 @@ function ContentFooter({selected}) {
                 <List.Item style={{width:'100%', padding:'5px'}}
                            actions={actions}>
  
-                    <Text style={{fontSize:'18px', verticalAlign:'middle', userSelect:'none', marginLeft:'40px'}}>{selected.length} 개의 파일 선택됨</Text>
+                    <Text style={{fontSize:'18px', verticalAlign:'middle', userSelect:'none', marginLeft:'40px'}}>{selectedItems.length} 개의 파일 선택됨</Text>
  
                 </List.Item>
                 

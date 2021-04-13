@@ -4,22 +4,22 @@ import { CheckSquareOutlined, CheckSquareFilled } from '@ant-design/icons'
 import { Typography, List  } from 'antd'
 const Text = Typography.Text
 
-function ContentHeader({unionedMatch, setSelected, selectAll, setSelectAll}) {
+function ContentHeader({unionedMatch, setSelectedItems, isAllEnabled, setIsAllEnabled}) {
 
     const onClick = () => {
-        setSelectAll(!selectAll)
-        selectAll = !selectAll
+        setIsAllEnabled(!isAllEnabled)
+        isAllEnabled = !isAllEnabled
         
         const container = document.querySelector('.ant-list-items')
         const items = container ? container.children : []
 
-        if(selectAll) {
+        if(isAllEnabled) {
             [].forEach.call(items, item => item.classList.add('selected'))
-            setSelected(unionedMatch)
+            setSelectedItems(unionedMatch)
         }
         else {
             [].forEach.call(items, item => item.classList.remove('selected'))
-            setSelected([])
+            setSelectedItems([])
         }
     }
 
@@ -31,7 +31,7 @@ function ContentHeader({unionedMatch, setSelected, selectAll, setSelectAll}) {
                     extra={<Text style={{fontSize:'18px', verticalAlign:'middle', marginRight:"calc(10vw + 200px)", userSelect:'none'}}>태그</Text>}
                 >
                     <div>
-                        {selectAll 
+                        {isAllEnabled 
                             ? 
                             <CheckSquareFilled 
                                 style={{margin:'0 40px', fontSize:'20px', verticalAlign:'middle', cursor:'pointer', color: '#1E90FF'}}
