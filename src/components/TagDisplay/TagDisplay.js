@@ -1,4 +1,5 @@
 import 'antd/dist/antd.css'
+import './style.css'
 import { Tabs } from 'antd'
 import React from 'react'
 import TagsGrid from '../../components/TagsGrid/TagsGrid'
@@ -13,12 +14,11 @@ const TagDisplay = ({searchBarID}) => {
     return (
         <Tabs defaultActiveKey='All' 
               >
-
                 {AllGroups.map((name) => (
                     <TabPane tab={name} 
                              key={name}
-                             style={{height: '300px',
-                                     overflowY: 'auto'}}>
+                             className="TagGrid"
+                    >
 
                         <TagsGrid searchBarID={searchBarID} currentTab={name} />
                     </TabPane>

@@ -1,0 +1,18 @@
+.TagGrid {
+    overflow-y: auto;
+    height: 300px;
+}
+
+.TagGrid::-webkit-scrollbar {
+    width: 7px;
+}
+
+.TagGrid::-webkit-scrollbar-thumb {
+    background-color: #A3A7A9;
+    border-radius: 10px;
+}
+
+.TagGrid::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
