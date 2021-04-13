@@ -2,11 +2,9 @@ import "antd/dist/antd.css"
 import { Typography, Button } from 'antd'
 import { Link } from 'react-router-dom';
 import "./intro.css"
-
 const { Title } = Typography
+
 export default function MainSpace() {
-
-
     return (
         <div style={{height:"100%", overflow:"hidden"}}>
             <div style={{position:"relative", top:"30%", textAlign:'left', left:"30%"}}>

@@ -1,5 +1,9 @@
 {
   "name": "tagging-front",
+  "jest": {
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"]
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {

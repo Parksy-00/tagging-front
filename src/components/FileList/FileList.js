@@ -12,6 +12,7 @@ const FileList = ({selectedItems, setSelectedItems, unionedMatch, setIsAllEnable
     useEffect(() => {
         const reset = (e) => {
             const t = e.target
+            console.log(t)
             const list = document.querySelector('.ant-list-items')
             if(t.closest('.ant-list-items') == list) return
             if(t.closest('.anticon-check-square')) return
