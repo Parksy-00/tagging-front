@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import 'antd/dist/antd.css'
 import { CheckSquareOutlined, CheckSquareFilled } from '@ant-design/icons'
 import { Typography, List  } from 'antd'
@@ -6,20 +6,19 @@ const Text = Typography.Text
 
 function ContentHeader({unionedMatch, setSelected, selectAll, setSelectAll}) {
 
-    const onClick = (e) => {
+    const onClick = () => {
         setSelectAll(!selectAll)
-        const list = document.querySelector('.ant-list-items')
-        const listItems = list ? list.children : []
-        if(!selectAll) {
-            for (const item of listItems) {
-                item.classList.add('selected')
-            }
+        selectAll = !selectAll
+        
+        const container = document.querySelector('.ant-list-items')
+        const items = container ? container.children : []
+
+        if(selectAll) {
+            [].forEach.call(items, item => item.classList.add('selected'))
             setSelected(unionedMatch)
         }
         else {
-            for (const item of listItems) {
-                item.classList.remove('selected')
-            }
+            [].forEach.call(items, item => item.classList.remove('selected'))
             setSelected([])
         }
     }
@@ -32,15 +31,16 @@ function ContentHeader({unionedMatch, setSelected, selectAll, setSelectAll}) {
                     extra={<Text style={{fontSize:'18px', verticalAlign:'middle', marginRight:"calc(10vw + 200px)", userSelect:'none'}}>태그</Text>}
                 >
                     <div>
-                        {selectAll ? 
+                        {selectAll 
+                            ? 
                             <CheckSquareFilled 
                                 style={{margin:'0 40px', fontSize:'20px', verticalAlign:'middle', cursor:'pointer', color: '#1E90FF'}}
-                                onClick={onClick}
-                            /> : 
+                                onClick={onClick}/> 
+                            
+                            : 
                             <CheckSquareOutlined
                                 style={{margin:'0 40px', fontSize:'20px', verticalAlign:'middle', cursor:'pointer'}}
-                                onClick={onClick}
-                            /> 
+                                onClick={onClick}/> 
                         }
                         
                         <Text style={{fontSize:'18px', verticalAlign:'middle', userSelect:'none'}}>이름</Text>
