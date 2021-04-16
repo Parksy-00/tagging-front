@@ -11,26 +11,25 @@ import RecommandedTags from '../../states/recommandedTags'
 
 
 
-const TagSearch = (props) => {
+const TagSearch = ({searchBarID, option}) => {
     const [currentSearchID, setCurrentSearchID] = useRecoilState(CurrentSearchID)
     const setAllSeachIDs = useSetRecoilState(AllSearchIDs)
-    const recommandedTags = useRecoilValue(RecommandedTags(props.searchBarID))
-    const [selectedTags, setSelectedTags] = useRecoilState(SelectedTags(props.searchBarID))
+    const recommandedTags = useRecoilValue(RecommandedTags(searchBarID))
+    const [selectedTags, setSelectedTags] = useRecoilState(SelectedTags(searchBarID))
     const [allFiles, setAllFiles] = useRecoilState(AllFiles)
     const [isOpen, setIsOpen] = useState(false)
     
     const handleClear = () => {
         setCurrentSearchID(0)
         setAllSeachIDs(old => old.filter(ID => ID === 0 || 
-                                               ID !== props.searchBarID))                     
+                                               ID !== searchBarID))                     
         
-        const clearedID = props.searchBarID.toString()
+        const clearedID = searchBarID.toString()
         const {[clearedID]: _, ...withOutClearedID} = {...allFiles};
         setAllFiles(withOutClearedID)
     }
 
-    const tagRender = (props) => {
-        const { label, closable, onClose } = props;
+    const tagRender = ({ label, closable, onClose }) => {
         return (
             <Tag color="geekblue" 
                  closable={closable} 
@@ -43,12 +42,12 @@ const TagSearch = (props) => {
     }
 
     return (
-        <Select mode={props.option}
+        <Select mode={option}
                 style={{ width: '100%' }}
-                className={props.searchBarID === currentSearchID ? 'current no-reset' : 'no-reset'}
+                className={searchBarID === currentSearchID ? 'current no-reset' : 'no-reset'}
                 placeholder="태그를 입력하세요." 
                 onChange={newSelected => (setSelectedTags(newSelected))}
-                onFocus={() => setCurrentSearchID(props.searchBarID)}
+                onFocus={() => setCurrentSearchID(searchBarID)}
                 allowClear={true}
                 value={selectedTags}
                 onClear={handleClear}
@@ -64,8 +63,8 @@ const TagSearch = (props) => {
                 >
             
             {recommandedTags.map((item) => (<Select.Option key={item} value={item}>
-                                        {item}
-                                    </Select.Option>))}
+                                                {item}
+                                            </Select.Option>))}
         </Select>
     )
 }
