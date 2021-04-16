@@ -8,7 +8,7 @@ function ContentHeader({unionedMatch, setSelectedItems, isAllEnabled, setIsAllEn
 
     const onClick = () => {
         const container = document.querySelector('.ant-list-items')
-        if(container == null) return
+        if(container === null) return
         const items = container.children
 
         setIsAllEnabled(!isAllEnabled)
