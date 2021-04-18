@@ -8,6 +8,7 @@ import CurrentSearchID from '../../states/currentSearchID'
 import AllSearchIDs from '../../states/allSearchIDs'
 import AllFiles from '../../states/allFiles'
 import RecommandedTags from '../../states/recommandedTags'
+import classNames from 'classnames'
 
 
 
@@ -44,7 +45,10 @@ const TagSearch = ({searchBarID, option}) => {
     return (
         <Select mode={option}
                 style={{ width: '100%' }}
-                className={searchBarID === currentSearchID ? 'current no-reset' : 'no-reset'}
+                className={classNames({
+                    'no-reset': true,
+                    'current': searchBarID === currentSearchID
+                })}
                 placeholder="태그를 입력하세요." 
                 onChange={newSelected => (setSelectedTags(newSelected))}
                 onFocus={() => setCurrentSearchID(searchBarID)}

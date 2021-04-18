@@ -1,8 +1,14 @@
 {
   "name": "tagging-front",
   "jest": {
-    "moduleFileExtensions": ["ts", "tsx", "js"],
-    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ]
   },
   "version": "0.1.0",
   "private": true,
@@ -12,6 +18,7 @@
     "@testing-library/user-event": "^12.8.3",
     "antd": "^4.14.1",
     "axios": "^0.21.1",
+    "classnames": "^2.3.1",
     "immutable": "^4.0.0-rc.12",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
